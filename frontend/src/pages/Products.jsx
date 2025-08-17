@@ -33,7 +33,7 @@ const Products = () => {
 
   const handleReFetch = async () => {
     try {
-      const res = await axios.get("http://localhost:8000/api/get-product");
+      const res = await axios.get("https://fullstack-product-mangement.onrender.com/api/get-product");
       const fetchData = res.data.products;
       setProducts(fetchData);
     } catch (error) {
@@ -50,7 +50,7 @@ const Products = () => {
     e.preventDefault();
     try {
       const res = await axios.put(
-        `http://localhost:8000/api/update-product/${selectedProduct.id}`,
+        `https://fullstack-product-mangement.onrender.com/api/update-product/${selectedProduct.id}`,
         updateForm
       );
 
@@ -68,7 +68,7 @@ const Products = () => {
   const handleDelete = async (id) => {
     try {
       const res = await axios.delete(
-        `http://localhost:8000/api/delete-product/${id}`
+        `https://fullstack-product-mangement.onrender.com/api/delete-product/${id}`
       );
       if (res.status == 200) {
         alert("Product deleted successfully!");

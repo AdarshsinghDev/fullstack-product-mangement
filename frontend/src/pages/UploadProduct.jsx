@@ -45,7 +45,7 @@ const UploadProduct = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:8000/api/upload-product", {
+      const res = await axios.post("https://fullstack-product-mangement.onrender.com/api/upload-product", {
         id: data.id,
         name: data.name,
         priceMax: data.price,
