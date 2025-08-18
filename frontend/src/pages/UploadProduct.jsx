@@ -48,7 +48,7 @@ const UploadProduct = () => {
     e.preventDefault();
     try {
       const res = await axios.post(
-        `${process.env.BACKEND_URL}/api/upload-product`,
+        `${import.meta.env.BACKEND_URL}/api/upload-product`,
         {
           id: data.id,
           name: data.name,
