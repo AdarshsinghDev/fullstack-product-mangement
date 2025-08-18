@@ -34,8 +34,10 @@ const Products = () => {
 
   const handleReFetch = async () => {
     try {
-      const res = await axios.get(`${import.meta.env.BACKEND_URL}/api/get-product`);
-      const fetchData = res.data.products;
+      const res = await axios.get(
+        `${import.meta.env.BACKEND_URL}/api/get-product`
+      );
+      const fetchData = res.data.products || [];
       setProducts(fetchData);
     } catch (error) {
       console.log(error);
@@ -51,7 +53,9 @@ const Products = () => {
     e.preventDefault();
     try {
       const res = await axios.put(
-        `${import.meta.env.BACKEND_URL}/api/update-product/${selectedProduct.id}`,
+        `${import.meta.env.BACKEND_URL}/api/update-product/${
+          selectedProduct.id
+        }`,
         updateForm
       );
 
@@ -174,8 +178,10 @@ const Products = () => {
                       Product Name
                     </p>
                     <h2 className="text-xl font-bold text-white leading-tight">
-                      {product.name.charAt(0).toUpperCase() +
-                        product.name.slice(1)}
+                      {product.name
+                        ? product.name.charAt(0).toUpperCase() +
+                          product.name.slice(1)
+                        : "Unnamed"}
                     </h2>
                   </div>
 
