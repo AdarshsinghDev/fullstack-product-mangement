@@ -35,7 +35,7 @@ const Products = () => {
   const handleReFetch = async () => {
     try {
       const res = await axios.get(
-        `${import.meta.env.BACKEND_URL}/api/get-product`
+        `${import.meta.env.VITE_BACKEND_URL}/api/get-product`
       );
       const fetchData = res.data.products || [];
       setProducts(fetchData);
@@ -53,7 +53,7 @@ const Products = () => {
     e.preventDefault();
     try {
       const res = await axios.put(
-        `${import.meta.env.BACKEND_URL}/api/update-product/${
+        `${import.meta.env.VITE_BACKEND_URL}/api/update-product/${
           selectedProduct.id
         }`,
         updateForm
@@ -73,7 +73,7 @@ const Products = () => {
   const handleDelete = async (id) => {
     try {
       const res = await axios.delete(
-        `${import.meta.env.BACKEND_URL}/api/delete-product/${id}`
+        `${import.meta.env.VITE_BACKEND_URL}/api/delete-product/${id}`
       );
       if (res.status == 200) {
         alert("Product deleted successfully!");
