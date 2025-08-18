@@ -6,7 +6,7 @@ import router from "./router/router.js";
 dotenv.config();
 
 const app = express();
-const PORT = 8000;
+const PORT = process.env.PORT || 8000;
 
 const corsOptions = {
     origin: "https://fullstack-product-mangement.vercel.app",
