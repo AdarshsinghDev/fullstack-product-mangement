@@ -9,8 +9,6 @@ import {
 } from "lucide-react";
 import UploadProduct from "./UploadProduct";
 import axios from "axios";
-import dotenv from "dotenv";
-dotenv.config();
 
 const Products = () => {
   const [products, setProducts] = useState([]);

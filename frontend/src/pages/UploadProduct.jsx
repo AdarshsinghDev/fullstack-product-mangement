@@ -10,8 +10,6 @@ import {
   Tag,
   Palette,
 } from "lucide-react";
-import dotenv from "dotenv";
-dotenv.config();
 
 const UploadProduct = () => {
   const [data, setData] = useState({
