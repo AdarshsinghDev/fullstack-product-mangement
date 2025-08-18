@@ -9,6 +9,9 @@ import {
 } from "lucide-react";
 import UploadProduct from "./UploadProduct";
 import axios from "axios";
+import dotenv from "dotenv";
+dotenv.config();
+
 const Products = () => {
   const [products, setProducts] = useState([]);
 
@@ -33,7 +36,7 @@ const Products = () => {
 
   const handleReFetch = async () => {
     try {
-      const res = await axios.get("https://fullstack-product-mangement.onrender.com/api/get-product");
+      const res = await axios.get(`${process.env.BACKEND_URL}/api/get-product`);
       const fetchData = res.data.products;
       setProducts(fetchData);
     } catch (error) {
@@ -50,7 +53,7 @@ const Products = () => {
     e.preventDefault();
     try {
       const res = await axios.put(
-        `https://fullstack-product-mangement.onrender.com/api/update-product/${selectedProduct.id}`,
+        `${process.env.BACKEND_URL}/api/update-product/${selectedProduct.id}`,
         updateForm
       );
 
@@ -68,7 +71,7 @@ const Products = () => {
   const handleDelete = async (id) => {
     try {
       const res = await axios.delete(
-        `https://fullstack-product-mangement.onrender.com/api/delete-product/${id}`
+        `${process.env.BACKEND_URL}/api/delete-product/${id}`
       );
       if (res.status == 200) {
         alert("Product deleted successfully!");

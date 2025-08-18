@@ -10,6 +10,8 @@ import {
   Tag,
   Palette,
 } from "lucide-react";
+import dotenv from "dotenv";
+dotenv.config();
 
 const UploadProduct = () => {
   const [data, setData] = useState({
@@ -45,13 +47,16 @@ const UploadProduct = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("https://fullstack-product-mangement.onrender.com/api/upload-product", {
-        id: data.id,
-        name: data.name,
-        priceMax: data.price,
-        color: data.color,
-        categoery: data.categoery,
-      });
+      const res = await axios.post(
+        `${process.env.BACKEND_URL}/api/upload-product`,
+        {
+          id: data.id,
+          name: data.name,
+          priceMax: data.price,
+          color: data.color,
+          categoery: data.categoery,
+        }
+      );
 
       setData({
         id: "",
