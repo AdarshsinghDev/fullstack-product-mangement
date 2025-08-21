@@ -4,7 +4,6 @@ import {
   Edit,
   Trash2,
   Package,
-  DollarSign,
   Hash,
   Upload,
   Tag,
@@ -129,7 +128,7 @@ const UploadProduct = () => {
               htmlFor="price"
               className="flex items-center gap-2 text-slate-300 font-medium"
             >
-              <DollarSign className="w-4 h-4 text-yellow-400" />
+              ₹
               Price
             </label>
             <input
